@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SETTING BIAR BAGUS SAAT DI-SHARE KE WA/SOSMED -->
+    <title>Koleksi Video Seru</title>
+    <meta name="description" content="Kumpulan video seru dan menarik. Klik sekarang untuk menonton!">
+    <meta property="og:url" content="https://booop-beta.vercel.app/">
+    <meta property="og:title" content="🎬 Nonton Video Seru Disini!">
+    <meta property="og:description" content="Klik link di bawah untuk akses 30+ video pilihan. Gratis!">
+    <meta property="og:image" content="https://picsum.photos/400/300">
+    <meta property="og:type" content="website">
+
+    <style>
+        body { 
+            background-color: #0f0f0f; 
+            color: white; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            display: flex; 
+            justify-content: center; 
+            padding: 20px 0;
+            margin: 0; 
+        }
+        .container { width: 100%; max-width: 600px; padding: 0 20px; }
+
+        /* STYLING KATALOG VIDEO */
+        h1 { text-align: center; font-size: 24px; margin-bottom: 20px; color: #e50914; border-bottom: 2px solid #333; padding-bottom: 10px; }
+        .video-list { display: flex; flex-direction: column; gap: 10px; max-height: 85vh; overflow-y: auto; padding-right: 10px; }
+        .video-item {
+            display: flex; align-items: center; background: #1a1a1a; border: 1px solid #333;
+            border-radius: 8px; padding: 15px; cursor: pointer; transition: 0.2s; color: white;
+        }
+        .video-item:hover { background: #2a2a2a; border-color: #e50914; transform: translateX(5px); }
+        .play-icon { font-size: 24px; margin-right: 15px; color: #e50914; }
+        .video-title { font-size: 16px; font-weight: bold; }
+        .video-tag { font-size: 12px; color: #888; margin-top: 4px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🎬 Daftar Video</h1>
+        <div class="video-list" id="videoContainer"></div>
+    </div>
+
+    <script>
+        // ==========================================
+        // LINK DIRECT MONETAG (FOKUS 1 LINK SAJA)
+        // ==========================================
+        const monetagLink = 'https://omg10.com/4/11078226';
+
+        // DATABASE 30 VIDEO VIDEY (UPDATE BARU)
+        const videos = [
+            { title: "Video Episode 1", url: "https://videy.co/v/?id=lZTnYKTt1" },
+            { title: "Video Episode 2", url: "https://videy.co/v/?id=wNA6lyYP1" },
+            { title: "Video Episode 3", url: "https://videy.co/v/?id=mceRVTy41" },
+            { title: "Video Episode 4", url: "https://videy.co/v/?id=BiUDLxyK1" },
+            { title: "Video Episode 5", url: "https://videy.co/v/?id=waMJQvf21" },
+            { title: "Video Episode 6", url: "https://videy.co/v/?id=jkvhaoZw1" },
+            { title: "Video Episode 7", url: "https://videy.co/v/?id=kVwRprfZ1" },
+            { title: "Video Episode 8", url: "https://videy.co/v/?id=hnyqTC6l1" },
+            { title: "Video Episode 9", url: "https://videy.co/v/?id=6XzIaCTr1" },
+            { title: "Video Episode 10", url: "https://videy.co/v/?id=QR1KTCha1" },
+            { title: "Video Episode 11", url: "https://videy.co/v/?id=uv3C07mA1" },
+            { title: "Video Episode 12", url: "https://videy.co/v/?id=ujXsNr4H1" },
+            { title: "Video Episode 13", url: "https://videy.co/v/?id=nGL6Lohd1" },
+            { title: "Video Episode 14", url: "https://videy.co/v/?id=0P60hw4Z1" },
+            { title: "Video Episode 15", url: "https://videy.co/v/?id=i0FiNdeD1" },
+            { title: "Video Episode 16", url: "https://videy.co/v/?id=iDzECyeg1" },
+            { title: "Video Episode 17", url: "https://videy.co/v/?id=zhB5NRpg1" },
+            { title: "Video Episode 18", url: "https://videy.co/v/?id=qE3UBS6o1" },
+            { title: "Video Episode 19", url: "https://videy.co/v/?id=lel4NiJU1" },
+            { title: "Video Episode 20", url: "https://videy.co/v/?id=Ay4W1cdN1" },
+            { title: "Video Episode 21", url: "https://videy.co/v/?id=Wh2l1zyE1" },
+            { title: "Video Episode 22", url: "https://videy.co/v/?id=D3cpAu7u1" },
+            { title: "Video Episode 23", url: "https://videy.co/v/?id=dVoXOqlu1" },
+            { title: "Video Episode 24", url: "https://videy.co/v/?id=BOmYYRty1" },
+            { title: "Video Episode 25", url: "https://videy.co/v/?id=oTigxiZO1" },
+            { title: "Video Episode 26", url: "https://videy.co/v/?id=UY6oNMHV1" },
+            { title: "Video Episode 27", url: "https://videy.co/v/?id=K4pU7ZGe1" },
+            { title: "Video Episode 28", url: "https://videy.co/v/?id=WWgxWzr21" },
+            { title: "Video Episode 29", url: "https://videy.co/v/?id=mAnCNS1f1" },
+            { title: "Video Episode 30", url: "https://videy.co/v/?id=4PBlGna61" }
+        ];
+        // ==========================================
+
+        const container = document.getElementById('videoContainer');
+
+        // Otomatis bikin list video
+        videos.forEach((video, index) => {
+            const item = document.createElement('div');
+            item.className = 'video-item';
+            item.innerHTML = `
+                <div class="play-icon">▶</div>
+                <div>
+                    <div class="video-title">${video.title}</div>
+                    <div class="video-tag">Klik untuk menonton</div>
+                </div>
+            `;
+            
+            // SAAT VIDEO DIKLIK: Buka Monetag lalu redirect
+            item.onclick = function() {
+                // 1. Buka Monetag di tab baru (langsung dari klik user)
+                window.open(monetagLink, '_blank'); 
+                
+                // 2. Pindah halaman ini ke video Videy
+                window.location.href = video.url; 
+            };
+
+            container.appendChild(item);
+        });
+    </script>
+</body>
+</html>
