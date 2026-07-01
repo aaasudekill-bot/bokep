@@ -3,10 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SCRIPT TAG DARI QUGE (ZONE PERTAMA) -->
-    <script src="https://quge5.com/88/tag.min.js" data-zone="249177" async data-cfasync="false"></script>
-    <script>(function(s){s.dataset.zone='11140341',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
 
     <!-- SETTING BIAR BAGUS SAAT DI-SHARE KE WA/SOSMED -->
     <title>Koleksi Video Seru</title>
@@ -35,7 +31,6 @@
         }
         .container { width: 100%; max-width: 600px; padding: 0 20px; }
 
-        /* STYLING KATALOG VIDEO */
         h1 { text-align: center; font-size: 24px; margin-bottom: 15px; color: #e50914; border-bottom: 2px solid #333; padding-bottom: 10px; }
         .video-list { display: flex; flex-direction: column; gap: 10px; max-height: 85vh; overflow-y: auto; padding-right: 10px; }
         .video-item {
@@ -47,37 +42,18 @@
         .video-title { font-size: 16px; font-weight: bold; }
         .video-tag { font-size: 12px; color: #888; margin-top: 4px; }
         
-        /* STYLING NATIVE BAR CONTAINER */
         #container-1857819ecdd5e27400cce4f1268b2efd { 
-            margin-bottom: 15px; 
-            margin-top: 15px;
-            overflow: hidden; 
+            margin-bottom: 15px; margin-top: 15px; overflow: hidden; 
         }
 
-        /* STYLING DISCLAIMER IKLAN */
         .disclaimer-box {
-            margin-bottom: 15px;
-            padding: 12px;
-            background-color: #1a1a1a;
-            border: 1px solid #444;
-            border-radius: 8px;
-            font-size: 12px;
-            color: #888;
-            line-height: 1.5;
-            text-align: justify;
+            margin-bottom: 15px; padding: 12px; background-color: #1a1a1a;
+            border: 1px solid #444; border-radius: 8px; font-size: 12px;
+            color: #888; line-height: 1.5; text-align: justify;
         }
-        .disclaimer-box p {
-            margin: 0 0 5px 0;
-        }
-        .disclaimer-box strong {
-            color: #e50914;
-        }
-        /* Garis pemisah untuk teks dua bahasa */
-        .disclaimer-box hr {
-            border: 0;
-            border-top: 1px solid #333;
-            margin: 8px 0;
-        }
+        .disclaimer-box p { margin: 0 0 5px 0; }
+        .disclaimer-box strong { color: #e50914; }
+        .disclaimer-box hr { border: 0; border-top: 1px solid #333; margin: 8px 0; }
     </style>
 </head>
 <body>
@@ -85,22 +61,16 @@
     <div class="container">
         <h1>🎬 Daftar Video</h1>
 
-        <!-- ========================================== -->
-        <!-- DISCLAIMER IKLAN DUA BAHASA (DI ATAS)      -->
-        <!-- ========================================== -->
+        <!-- DISCLAIMER IKLAN DUA BAHASA -->
         <div class="disclaimer-box">
             <p><strong>⚠️ Perhatian (Disclaimer):</strong></p>
             <p>Situs ini mengandung iklan dari jaringan pihak ketiga untuk mendukung operasional server. Saat Anda mengklik tombol tonton/video, kemungkinan akan terbuka tab baru atau jendela iklan (Pop-up/Pop-under) secara otomatis. Tutup tab iklan tersebut jika tidak berminat, lalu kembali ke halaman ini untuk menonton video aslinya. Terima kasih atas dukungan dan pengertiannya.</p>
-            
             <hr>
-
             <p><strong>⚠️ Attention (Disclaimer):</strong></p>
             <p>This site contains third-party network advertisements to support server operations. When you click the watch/video button, a new tab or ad window (Pop-up/Pop-under) may open automatically. Close the ad tab if you are not interested, then return to this page to watch the original video. Thank you for your support and understanding.</p>
         </div>
 
-        <!-- ========================================== -->
-        <!-- IKLAN MONETAG: NATIVE BAR                  -->
-        <!-- ========================================== -->
+        <!-- IKLAN MONETAG: NATIVE BAR -->
         <script async="async" data-cfasync="false" src="https://pl29823767.effectivecpmnetwork.com/1857819ecdd5e27400cce4f1268b2efd/invoke.js"></script>
         <div id="container-1857819ecdd5e27400cce4f1268b2efd"></div>
 
@@ -113,8 +83,10 @@
         // LINK DIRECT MONETAG & SMART LINK (ROTATOR)
         // ==========================================
         const monetagLinks = [
-            'https://omg10.com/4/11078226', // Direct link lama
-            'https://www.effectivecpmnetwork.com/e8qwu848fa?key=ab30e1c625ea91318ee5a81287ce05a6' // Smart link
+            'https://omg10.com/4/11078226',
+            'https://omg10.com/4/11080051',
+            'https://omg10.com/4/11078227',
+            'https://www.effectivecpmnetwork.com/e8qwu848fa?key=ab30e1c625ea91318ee5a81287ce05a6'
         ];
 
         // DATABASE 30 VIDEO VIDEY (YANG PERTAMA)
@@ -150,11 +122,9 @@
             { title: "Video Episode 29", url: "https://videy.co/v/?id=mAnCNS1f1" },
             { title: "Video Episode 30", url: "https://videy.co/v/?id=4PBlGna61" }
         ];
-        // ==========================================
 
         const container = document.getElementById('videoContainer');
 
-        // Otomatis bikin list video
         videos.forEach((video, index) => {
             const item = document.createElement('div');
             item.className = 'video-item';
@@ -165,19 +135,11 @@
                     <div class="video-tag">Klik untuk menonton</div>
                 </div>
             `;
-            
-            // SAAT VIDEO DIKLIK: Buka Monetag/Smartlink acak lalu redirect ke video
             item.onclick = function() {
-                // 1. Ambil link secara acak dari array (Rotator A/B Testing)
                 const randomLink = monetagLinks[Math.floor(Math.random() * monetagLinks.length)];
-                
-                // 2. Buka link iklan di tab baru (langsung dari klik user)
                 window.open(randomLink, '_blank'); 
-                
-                // 3. Pindah halaman ini ke video Videy asli
                 window.location.href = video.url; 
             };
-
             container.appendChild(item);
         });
     </script>
